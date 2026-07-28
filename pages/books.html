@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista de Livros</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/style.css}">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Lista de Livros</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Gênero</th>
+                        <th>Categoria</th>
+                        <th>Autor</th>
+                        <th>Data de Publicação</th>
+                        <th>Preço</th>
+                        <th>Número de Série</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${Books.isEmpty()}">
+                        <td colspan="8" class="empty">Nenhum produto encontrado</td>
+                    </tr>
+
+                    <tr th:each = "Book : ${Books}">
+                        <td th:text="${Book.id}"></td>
+                        <td th:text="${Book.nome}"></td>
+                        <td th:text="${Book.genero}"></td>
+                        <td th:text="${Book.categoria}"></td>
+                        <td th:text="${Book.autor}"></td>
+                        <td th:text="${Book.data}"></td>
+                        <td th:text="${Book.preco}"></td>
+                        <td th:text="${Book.num_serie}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="/" class="btn">Voltar para a página inicial</a>
+        </div>
+    </body>
+</html>
